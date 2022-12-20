@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.*"%>
-
+    <%@page import ="java.util.*" %>
+    <%@page import ="Entities.Notifications"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +24,31 @@
         </a>
         <input type="checkbox" class="dropdown-check" id="check" />
         <ul class="dropdown">
-
-              <li></li>
+                            <%
+							List<Notifications> dataList = (List<Notifications>)session.getAttribute("counts");
+							for(int i = 0; i<dataList.size(); i++){
+								
+							%>							
+              <li> <%out.print(dataList.get(i).getText()); %></li>
+              <%} %>
         </ul>
       </li>
     </ul>
   </nav>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#notifications").on("click", function() {
+        $.ajax({
+        type: 'put'	,
+          url: "/update",
+          success: function(res) {
+            console.log(res);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

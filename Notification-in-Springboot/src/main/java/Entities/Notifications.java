@@ -13,15 +13,22 @@ public class Notifications {
 
 	private String status;
 
+	private long userid;
+	
 	public Notifications() {
 	}
 
-	public Notifications(long id, String text, String status) {
+
+
+	public Notifications(long id, String text, String status, long userid) {
 		super();
 		this.id = id;
 		this.text = text;
 		this.status = status;
+		this.userid = userid;
 	}
+
+
 
 	public long getId() {
 		return id;
@@ -46,5 +53,14 @@ public class Notifications {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public long getUserid() {
+		return userid;
+	}
+
+	public void setUserid(long userid) {
+		this.userid = userid;
+	}
+	
 
 }

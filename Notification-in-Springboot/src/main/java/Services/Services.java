@@ -14,8 +14,25 @@ public class Services {
 	@Autowired
 	private NotiRepository repo;
 	
-	public long findByStatus(long id) {
-		return repo.count(id);
+	public long findByStatus(long userid) {
+		return repo.count(userid);
+		
+	}
+	
+//	public Notifications getdataByid(long userid) {
+//		return repo.findByuserid(userid);
+//		
+//	}
+	
+	
+	
+//	//Update data
+//	public Notifications getdataByid(long userid) {
+//		return repo.findByid(userid);		
+//	}
+	
+	public Integer Updatedata(Long userid) {
+		return repo.findByuserid(userid);
 		
 	}
 	
